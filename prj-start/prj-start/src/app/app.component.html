@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (header)="onShowList($event)"></app-header>
 <div class="contain">
 	<div class="row">
 		<div class="col-md-12">
-			<app-recipes></app-recipes>
-			<app-shooping-list></app-shooping-list>
+			<app-recipes *ngIf='item==1'></app-recipes>
+			<app-shooping-list *ngIf='item==2'></app-shooping-list>
 		</div>
 	</div>
 </div>
