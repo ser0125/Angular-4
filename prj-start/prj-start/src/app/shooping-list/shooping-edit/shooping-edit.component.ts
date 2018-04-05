@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { ShoopingListService } from './../shooping-list.service';
+import { Component, OnInit, ViewChild} from '@angular/core';
 
 import {Ingredient} from '../../shared/ingredient.model';
 
@@ -10,15 +11,15 @@ import {Ingredient} from '../../shared/ingredient.model';
 export class ShoopingEditComponent implements OnInit {
 @ViewChild('amountInput') amountInput; 
 @ViewChild('nameInput') nameInput; 
-@Output() itemAdded = new EventEmitter<Ingredient>();
 ingredient: Ingredient;
-   constructor() { }
+   constructor(private shoopingListService: ShoopingListService) { }
 
   ngOnInit() {
   }
   addItem(){
     this.ingredient = new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value);
-    this.itemAdded.emit(this.ingredient);
+    this.shoopingListService.setIngredients(this.ingredient);
+
 
   }
 

@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
  item: number;
   onShowList(selected){
-    console.log(selected);
     this.item = selected;
   }
 
